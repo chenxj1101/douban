@@ -5,7 +5,7 @@
 @Github: https://github.com/chenxj1101
 @Mail: ccj799@gmail.com
 @Date: 2019-01-24 16:35:29
-@LastEditTime: 2019-01-29 14:17:49
+@LastEditTime: 2019-02-01 10:00:23
 @Description: 豆瓣读书全站爬虫
 '''
 
@@ -51,10 +51,13 @@ class BooksSpider(CrawlSpider):
                 item['page'] = ''
                 item['price'] = ''
                 item['ISBN'] = ''
-                item['score'] = ''
-                item['evaluation_num'] = ''
+                item['score'] = 0.0
+                item['evaluation_num'] = 0
+                if '作者' in info:
+                    item['author'] = info[info.index('作者') + 2]
+                if '作者:' in info:
+                    item['author'] = info[info.index('作者:') + 1]
                 if '出版社:' in info:
-                    item['author'] = info[info.index('出版社:') - 1]
                     item['publishing'] = info[info.index('出版社:') + 1]
                 if '出版年:' in info:
                     item['publish_time'] = info[info.index('出版年:') + 1]
@@ -64,7 +67,7 @@ class BooksSpider(CrawlSpider):
                     item['price'] = info[info.index('定价:') + 1]
                 if 'ISBN:' in info:
                     item['ISBN'] = info[info.index('ISBN:') + 1]
-                if response.xpath("//div[@class='rating_sum']/span/a/text()")[0].extract() == '人评价':
+                if not response.xpath("//div[@class='rating_sum']/span/a/text()").extract():
                     item['score'] = response.xpath("//div[@class='rating_self clearfix']/strong/text()")[0].extract().strip()
                     item['evaluation_num'] = response.xpath("//a[@class='rating_people']/span/text()")[0].extract()
                 yield item

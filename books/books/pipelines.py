@@ -24,6 +24,5 @@ class BooksPipeline(object):
 
     def process_item(self, item, spider):
         postItem = dict(item)
-        url = postItem['url']
-        print(url)
+        self.collection.insert_one(postItem)
         return item
