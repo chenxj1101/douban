@@ -5,7 +5,7 @@
 @Github: https://github.com/chenxj1101
 @Mail: ccj799@gmail.com
 @Date: 2019-01-24 16:35:29
-@LastEditTime: 2019-02-01 10:00:23
+@LastEditTime: 2019-02-18 14:05:09
 @Description: 豆瓣读书全站爬虫
 '''
 
@@ -67,9 +67,11 @@ class BooksSpider(CrawlSpider):
                     item['price'] = info[info.index('定价:') + 1]
                 if 'ISBN:' in info:
                     item['ISBN'] = info[info.index('ISBN:') + 1]
-                if not response.xpath("//div[@class='rating_sum']/span/a/text()").extract():
-                    item['score'] = response.xpath("//div[@class='rating_self clearfix']/strong/text()")[0].extract().strip()
-                    item['evaluation_num'] = response.xpath("//a[@class='rating_people']/span/text()")[0].extract()
+                flag = response.xpath("//div[@class='rating_sum']/span/a/text()").extract()
+                if flag:
+                    if flag[0] == '人评价':
+                        item['score'] = response.xpath("//div[@class='rating_self clearfix']/strong/text()")[0].extract().strip()
+                        item['evaluation_num'] = response.xpath("//a[@class='rating_people']/span/text()")[0].extract()
                 yield item
             # except:
             #     print(f'{response.url} have some problem')
