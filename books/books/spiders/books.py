@@ -5,7 +5,7 @@
 @Github: https://github.com/chenxj1101
 @Mail: ccj799@gmail.com
 @Date: 2019-01-24 16:35:29
-@LastEditTime: 2019-02-18 14:05:09
+@LastEditTime: 2019-03-13 16:38:57
 @Description: 豆瓣读书全站爬虫
 '''
 
@@ -13,12 +13,14 @@
 from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
 from books.items import BooksItem
+from scrapy_redis.spiders import RedisCrawlSpider
 
 
-class BooksSpider(CrawlSpider):
+class BooksSpider(RedisCrawlSpider):
     name = 'books'
-    allowed_domains = ['douban.com']
-    start_urls = ['https://book.douban.com/tag/?icn=index-nav']
+    # allowed_domains = ['douban.com']
+    # start_urls = ['https://book.douban.com/tag/?icn=index-nav']
+    redis_key = 'books:start_urls'
 
     rules = {
         # Rule(LinkExtractor(allow=r'/tag/', restrict_xpaths="//div[@class='artcle']"), follow=True),

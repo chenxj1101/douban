@@ -6,6 +6,11 @@
 # https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
+from scrapy.downloadermiddlewares.useragent import UserAgentMiddleware
+from agent import agents
+import requests
+import re
+import random
 
 
 class BooksSpiderMiddleware(object):
@@ -101,3 +106,36 @@ class BooksDownloaderMiddleware(object):
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
+
+
+class ProxyMiddleware(object):
+    
+    def process_request(self, request, spider):
+        request.meta['proxy'] = 'http://' + self.get_randomproxy()
+
+    # def process_response(self, request, response, spider):
+    #     if response.status != 200:
+    #         proxy = 'http://' + self.get_randomproxy()
+    #         print("this is response ip" + proxy)
+    #         request.meta['proxy'] = proxy
+    #         return request
+    #     return response
+
+    
+    def get_randomproxy(self):
+        try:
+            response = requests.get('http://webapi.http.zhimacangku.com/getip?num=1&type=1&pro=&city=0&yys=0&port=1&pack=43461&ts=0&ys=0&cs=0&lb=1&sb=0&pb=4&mr=1&regions=')
+            if response.status_code == 200:
+                ip = response.text.strip()
+                print(ip)
+                return ip
+
+        except:
+            return None
+
+
+class UserAgentMiddleware(UserAgentMiddleware):
+
+    def process_request(self, request, spider):
+        agent = random.choice(agents)
+        request.headers["User-Agent"] = agent
