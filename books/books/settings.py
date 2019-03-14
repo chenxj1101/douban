@@ -17,8 +17,8 @@ BOT_NAME = 'books'
 SPIDER_MODULES = ['books.spiders']
 NEWSPIDER_MODULE = 'books.spiders'
 
-# CLOSESPIDER_ITEMCOUNT = 300
-CLOSESPIDER_PAGECOUNT = 300
+# CLOSESPIDER_ITEMCOUNT = 200
+CLOSESPIDER_PAGECOUNT = 200
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
 
