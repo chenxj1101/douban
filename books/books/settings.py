@@ -17,8 +17,8 @@ BOT_NAME = 'books'
 SPIDER_MODULES = ['books.spiders']
 NEWSPIDER_MODULE = 'books.spiders'
 
-# CLOSESPIDER_ITEMCOUNT = 200
-CLOSESPIDER_PAGECOUNT = 200
+CLOSESPIDER_ITEMCOUNT = 500
+# CLOSESPIDER_PAGECOUNT = 300
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
 
@@ -49,7 +49,7 @@ DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
 SCHEDULER_PERSIST = True
 
 # Redirect
-REDIRECTS_ENABLED = False
+# REDIRECTS_ENABLED = False
 
 # Override the default request headers:
 #DEFAULT_REQUEST_HEADERS = {
@@ -121,6 +121,6 @@ MongoDB_HOST = '127.0.0.1'
 MongoDB_PORT = 27017
 MongoDB_DB = 'douban'
 MongoDB_COLLECTION = 'book'
-MongoDB_USER = 'douban'
-MongoDB_PSW = 'chenxj123'
+MongoDB_USER = 'xxxxx'
+MongoDB_PSW = 'xxxxx'
 
