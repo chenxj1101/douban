@@ -17,7 +17,8 @@ BOT_NAME = 'books'
 SPIDER_MODULES = ['books.spiders']
 NEWSPIDER_MODULE = 'books.spiders'
 
-
+CLOSESPIDER_ITEMCOUNT = 500
+# CLOSESPIDER_PAGECOUNT = 300
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
 
@@ -39,7 +40,11 @@ CONCURRENT_REQUESTS_PER_DOMAIN = 1
 # CONCURRENT_REQUESTS_PER_IP = 1
 
 # Disable cookies (enabled by default)
+<<<<<<< HEAD
 # COOKIES_ENABLED = True
+=======
+# COOKIES_ENABLED = False
+>>>>>>> 8b1850432b32d368e014db1bca98d488f1767ae0
 
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
@@ -51,7 +56,11 @@ DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
 SCHEDULER_PERSIST = True
 
 # Redirect
+<<<<<<< HEAD
 REDIRECTS_ENABLED = False
+=======
+# REDIRECTS_ENABLED = False
+>>>>>>> 8b1850432b32d368e014db1bca98d488f1767ae0
 
 # Override the default request headers:
 #DEFAULT_REQUEST_HEADERS = {
@@ -95,7 +104,7 @@ ITEM_PIPELINES = {
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
-AUTOTHROTTLE_ENABLED = True
+# AUTOTHROTTLE_ENABLED = True
 # The initial download delay
 #AUTOTHROTTLE_START_DELAY = 5
 # The maximum download delay to be set in case of high latencies
@@ -123,6 +132,6 @@ MongoDB_HOST = '127.0.0.1'
 MongoDB_PORT = 27017
 MongoDB_DB = 'douban'
 MongoDB_COLLECTION = 'book'
-MongoDB_USER = 'douban'
-MongoDB_PSW = 'chenxj123'
+MongoDB_USER = 'xxxxx'
+MongoDB_PSW = 'xxxxx'
 
