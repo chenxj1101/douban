@@ -40,12 +40,7 @@ CONCURRENT_REQUESTS_PER_DOMAIN = 1
 # CONCURRENT_REQUESTS_PER_IP = 1
 
 # Disable cookies (enabled by default)
-<<<<<<< HEAD
 # COOKIES_ENABLED = True
-=======
-# COOKIES_ENABLED = False
->>>>>>> 8b1850432b32d368e014db1bca98d488f1767ae0
-
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
 
@@ -56,11 +51,7 @@ DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
 SCHEDULER_PERSIST = True
 
 # Redirect
-<<<<<<< HEAD
 REDIRECTS_ENABLED = False
-=======
-# REDIRECTS_ENABLED = False
->>>>>>> 8b1850432b32d368e014db1bca98d488f1767ae0
 
 # Override the default request headers:
 #DEFAULT_REQUEST_HEADERS = {
