@@ -134,7 +134,7 @@ class ProxyMiddleware(object):
             return None
 
 
-class UserAgentMiddleware(UserAgentMiddleware):
+class AgentMiddleware(UserAgentMiddleware):
 
     def process_request(self, request, spider):
         agent = random.choice(agents)
